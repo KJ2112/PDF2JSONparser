@@ -66,16 +66,6 @@ This project implements an advanced PDF parsing system that extracts content int
 pip install pdfplumber pandas numpy scikit-learn joblib pathlib
 ```
 
-**Complete requirements.txt:**
-```txt
-pdfplumber>=0.9.0
-pandas>=1.5.0
-numpy>=1.24.0
-scikit-learn>=1.3.0
-joblib>=1.3.0
-pathlib
-```
-
 ### Additional System Dependencies (for advanced features)
 ```bash
 # For OCR capabilities (optional)
@@ -242,24 +232,6 @@ Ground truth JSON files should contain:
 - **Complex Tables**: Very complex table structures may need manual verification
 - **Memory Usage**: Large documents (100+ pages) may require batch processing
 
-## 🔧 Advanced Configuration
-
-### Custom Feature Engineering
-```python
-# Modify feature computation in compute_features()
-def custom_feature_extraction(self, lines):
-    # Add domain-specific features
-    pass
-```
-
-### Output Customization
-```python
-# Customize JSON structure in parse_pdf_to_json()
-def custom_json_structure(self, content):
-    # Modify output format
-    pass
-```
-
 ## 🧪 Testing & Validation
 
 The system has been validated on:
@@ -274,30 +246,6 @@ The system has been validated on:
 - **Table Extraction**: >90% for well-formatted tables
 - **Section Assignment**: >80% correct section/subsection mapping
 
-## 🚀 Deployment Options
-
-### Local Development
-```bash
-python pdf_content_extractor.py
-```
-
-### Kaggle/Colab
-Direct notebook execution with dataset integration
-
-### API Deployment
-```python
-# Wrap in Flask/FastAPI for web service
-from flask import Flask, request, jsonify
-
-app = Flask(__name__)
-extractor = PDFContentExtractor()
-extractor.load_model("model.pkl")
-
-@app.route('/extract', methods=['POST'])
-def extract_pdf():
-    # Handle PDF upload and return JSON
-    pass
-```
 
 ## 📋 Assignment Compliance
 
@@ -311,46 +259,3 @@ This implementation fully meets the assignment requirements:
 ✅ **Modular Design**: Well-structured, documented code  
 ✅ **Robust Processing**: Handles diverse PDF formats  
 
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create feature branch: `git checkout -b feature/enhancement`
-3. Commit changes: `git commit -am 'Add new feature'`
-4. Push to branch: `git push origin feature/enhancement`
-5. Submit Pull Request
-
-## 🐛 Troubleshooting
-
-### Model Loading Issues
-```python
-# Check model file path and permissions
-if not os.path.exists(model_path):
-    print("Model file not found - using rule-based fallback")
-```
-
-### Memory Issues
-```python
-# Process large PDFs in chunks
-def process_large_pdf(pdf_path, chunk_size=10):
-    # Implementation for chunked processing
-    pass
-```
-
-### Extraction Quality
-```python
-# Enable debug mode for detailed processing info
-extractor.debug_mode = True
-result = extractor.parse_pdf_to_json(pdf_path)
-```
-
-## 📄 License
-
-MIT License - See LICENSE file for details
-
-## 📞 Support
-
-For issues or questions:
-1. Check troubleshooting section
-2. Review training data requirements
-3. Validate model compatibility
-4. Create GitHub issue with sample PDF and error details
